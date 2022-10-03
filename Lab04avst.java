@@ -14,17 +14,16 @@ public class Lab04avst
         double annualRate = 4.85;
         double numYears   = 30;
         double numMonths = numYears * 12;
-
         double monthlyrate = (annualRate/100) / 12;
         double numerator = monthlyrate * Math.pow(1+ monthlyrate, numMonths);
         double denominator = Math.pow(1+ monthlyrate, numMonths) - 1;
         double monthlyPayment = (numerator / denominator) * principal;
+        monthlyPayment *=100;
+        monthlyPayment = Math.round(monthlyPayment);
+        monthlyPayment /=100;
+
         double totalpayments = monthlyPayment * numMonths;
         double totalinterest = totalpayments - principal;
-
-
-
-
 
         System.out.println("Principle:         $"+principal);
         System.out.println("Annual Rate:       "+annualRate + "%" );
